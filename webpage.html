@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>CSS Manipulation</title>
+    </head>
+    <body id="b1">
+        <h1> Dummy Paragraph </h1>
+    <div id="my_div">
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, <br>
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into <br>
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, <br>
+            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+    <div>
+        <h2>1. Change the border color (0-255) and width</h2>
+        <input type="number" id='rd' name="red" placeholder="Red value" >
+        <input type="number" id='grn' name="green" placeholder="Green value">
+        <input type="number" id='bl' name="blue" placeholder="Blue value">
+        <input type="text" id='wdth' name="width" placeholder="Width">
+    </div>
+    <script>
+        function changeBorder() {
+            let rd = document.getElementById('rd').value;
+            let grn = document.getElementById('grn').value;
+            let bl = document.getElementById('bl').value;
+            let wdth = document.getElementById('wdth').value;
+            let border = wdth + "solid #FF0000";
+
+        function valueToHex(c) {
+            var hex = c.toString(16);
+            return hex
+        }
+
+        function rgbToHex(r, g, b) {
+            return(valueToHex(r) + valueToHex(g) + valueToHex(b));
+        }
+        clr = rgbToHex(rd, grn, bl);
+        
+        document.getElementById("my_div").style.border = border + clr;
+        }
+    </script>
+    <button type="button"
+    onclick="changeBorder()">
+    Click to change the border!</button>
+
+    <div>
+        <h2>2. Select Your Background Color (0-255) <span id="colorOutput"></span></h2>
+        <label>Red:</label>
+        <input type="number" id="red" name="red" placeholder="Red" min="0" max="255">
+        <label>Green:</label>
+        <input type="number" id="green" name="green" placeholder="Green" min="0" max="255">
+        <label>Blue:</label>
+        <input type="number" id="blue" name="blue" placeholder="Blue" min="0" max="255">
+    </div>
+        <script>
+        function changeColor() {
+            let red = document.getElementById('red').value;
+            let green = document.getElementById('green').value;
+            let blue = document.getElementById('blue').value;
+            let color = 'rgb(' + red + ',' + green + ',' + blue + ')'
+
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+    <button type="button"
+    onclick="changeColor()">
+    Click to change the background color!</button>
+
+    </body>
+</html>
